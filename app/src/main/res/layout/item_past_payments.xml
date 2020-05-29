@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView_upcoming_appointments"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/_5sdp"
+    android:layout_marginTop="@dimen/_4sdp"
+    android:layout_marginEnd="@dimen/_5sdp"
+    android:layout_marginBottom="@dimen/_4sdp"
+    android:elevation="8dp"
+    android:fadingEdge="vertical"
+    app:cardCornerRadius="@dimen/_5ssp"
+    app:cardElevation="4dp"
+    app:cardPreventCornerOverlap="true"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.app.womba.utils.customViews.BoldTextView
+            android:id="@+id/textView_doctor_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="8dp"
+            android:text="Dr. Ram sharma, MD"
+            android:textColor="#454F60"
+            android:textSize="@dimen/_14ssp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:orientation="horizontal">
+
+            <com.app.womba.utils.customViews.SemiBoldTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10ssp"
+                android:layout_marginTop="@dimen/_5ssp"
+                android:text="Amount Paid :"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintTop_toTopOf="@+id/view2" />
+
+            <com.app.womba.utils.customViews.RegularTextView
+                android:id="@+id/textView_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5ssp"
+                android:layout_marginBottom="@dimen/_5ssp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:orientation="horizontal">
+
+            <com.app.womba.utils.customViews.SemiBoldTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10ssp"
+                android:layout_marginTop="@dimen/_5ssp"
+                android:layout_marginBottom="@dimen/_5ssp"
+                android:text="Paid Date :"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintTop_toTopOf="@+id/view2" />
+
+            <com.app.womba.utils.customViews.RegularTextView
+                android:id="@+id/txtPaymentTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5ssp"
+                android:layout_marginBottom="@dimen/_5ssp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageView_appointment_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_22sdp"
+                app:srcCompat="@drawable/circle" />
+
+            <com.app.womba.utils.customViews.BoldTextView
+                android:id="@+id/textView_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10ssp"
+                android:layout_weight="1"
+                android:text="Tuesday, 13 Feb 2018"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintTop_toTopOf="@+id/view2" />
+
+            <com.app.womba.utils.customViews.BoldTextView
+                android:id="@+id/textView_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="12:30PM - 1:30PM"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

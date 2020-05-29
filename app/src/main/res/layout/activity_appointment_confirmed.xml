@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="@dimen/_45sdp"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgTick"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_150sdp"
+        android:layout_marginTop="@dimen/_42ssp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/ic_tick"/>
+
+    <com.app.womba.utils.customViews.SemiBoldTextView
+        android:id="@+id/txtConfirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:layout_below="@id/imgTick"
+        android:layout_centerHorizontal="true"
+        android:text="APPOINTMENT CONFIRMED"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:textSize="@dimen/_16ssp"/>
+
+    <com.app.womba.utils.customViews.SemiBoldTextView
+        android:id="@+id/txtDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/txtConfirm"
+        android:text="--"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textSize="@dimen/_15ssp"/>
+
+    <com.app.womba.utils.customViews.RegularTextView
+        android:id="@+id/txtDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_12ssp"
+        android:layout_centerHorizontal="true"
+
+        android:layout_below="@+id/txtDate"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:text="@string/you_don_t_need_to_do_anything_else_we_will_send_you_a_text_reminder_before_the_appointment"/>
+
+    <Button
+        android:id="@+id/btnGotIt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtDetail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="@dimen/_5ssp"
+        android:layout_marginTop="@dimen/_35sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:layout_marginBottom="163dp"
+        android:background="@drawable/login_buton_bg"
+        android:padding="@dimen/_12ssp"
+        android:text="OK, GOT IT"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+</RelativeLayout>

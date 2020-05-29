@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.app.womba.ui.binah.VitalDetailVM" />
+
+    </data>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="?android:attr/actionBarSize"
+                android:gravity="center"
+                android:text="@string/results"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_16ssp" />
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/parentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.main.MainActivity">
+
+                <LinearLayout
+                    android:id="@+id/vitalsLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="visible"
+                    android:weightSum="4">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal"
+                        android:layout_weight="1"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:id="@+id/heartLayout"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="15dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/shape_vital_details"
+                            android:orientation="vertical">
+
+                            <com.app.womba.utils.customViews.RegularTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:layout_marginTop="13dp"
+                                android:gravity="center"
+                                android:text="@string/heart_rate_bpm"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_12ssp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <com.app.womba.utils.customViews.RegularTextView
+                                android:id="@+id/bpmValue"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:layout_marginTop="13dp"
+
+                                android:gravity="center"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_28ssp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <com.app.womba.utils.customViews.RegularTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:gravity="center"
+                                android:text="@string/low_high"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_12ssp"
+                                android:layout_weight="1"
+
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/heartInfo"
+                                    android:layout_width="@dimen/_18ssp"
+                                    android:layout_height="@dimen/_18ssp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:srcCompat="@drawable/information" />
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/heartShare"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:srcCompat="@drawable/ic_group_331" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/oxygenLayout"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="15dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/shape_vital_details"
+                            android:orientation="vertical">
+
+                            <com.app.womba.utils.customViews.RegularTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+
+                                android:gravity="center"
+                                android:text="@string/oxygen_saturation_sp"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_12ssp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <com.app.womba.utils.customViews.RegularTextView
+                                android:id="@+id/breathValue"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:layout_marginTop="10dp"
+
+                                android:gravity="center"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_28ssp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                            <com.app.womba.utils.customViews.RegularTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:layout_weight="1"
+
+                                android:gravity="center"
+                                android:text="@string/rpm"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_12ssp"
+                                android:visibility="invisible"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/oxygenInfo"
+                                    android:layout_width="@dimen/_18ssp"
+                                    android:layout_height="@dimen/_18ssp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:srcCompat="@drawable/information" />
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/oxygenShare"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:srcCompat="@drawable/ic_group_331" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:baselineAligned="false"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:id="@+id/respirationLayout"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="15dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/shape_vital_details"
+                            android:orientation="vertical">
+
+                            <com.app.womba.utils.customViews.RegularTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:layout_marginTop="13dp"
+
+                                android:gravity="center"
+                                android:text="@string/respiration"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_12ssp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <com.app.womba.utils.customViews.RegularTextView
+                                android:id="@+id/Spo2Value"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:layout_marginTop="10dp"
+
+                                android:gravity="center"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_28ssp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                            <com.app.womba.utils.customViews.RegularTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:layout_weight="1"
+
+                                android:gravity="center"
+                                android:text="@string/rpm"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_12ssp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/respirationInfo"
+                                    android:layout_width="@dimen/_18ssp"
+                                    android:layout_height="@dimen/_18ssp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:srcCompat="@drawable/information" />
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/respirationShare"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:srcCompat="@drawable/ic_group_331" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/stressLayout"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="15dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/shape_vital_details"
+                            android:orientation="vertical">
+
+                            <com.app.womba.utils.customViews.RegularTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:layout_marginTop="13dp"
+
+                                android:gravity="center"
+                                android:text="@string/stress"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_12ssp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/stressValue"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="15dp"
+
+                                android:gravity="center"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_28ssp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                            <com.app.womba.utils.customViews.RegularTextView
+                                android:id="@+id/stressLevel"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:gravity="center"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_12ssp"
+                                android:layout_weight="1"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/stressInfo"
+                                    android:layout_width="@dimen/_18ssp"
+                                    android:layout_height="@dimen/_18ssp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:srcCompat="@drawable/information" />
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/stressShare"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:srcCompat="@drawable/ic_group_331" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:baselineAligned="false"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:id="@+id/hrvLayout"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="15dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/shape_vital_details"
+                            android:orientation="vertical">
+
+                            <com.app.womba.utils.customViews.RegularTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:layout_marginTop="13dp"
+
+                                android:gravity="center"
+                                android:text="@string/hrv_sdnn"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_12ssp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <com.app.womba.utils.customViews.RegularTextView
+                                android:id="@+id/hrvSdnn"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:layout_marginTop="10dp"
+
+                                android:gravity="center"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_28ssp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                            <com.app.womba.utils.customViews.RegularTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+
+                                android:gravity="center"
+                                android:text="@string/bpm"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_12ssp"                                android:layout_weight="1"
+
+                                android:visibility="invisible"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/hrvInfo"
+                                    android:layout_width="@dimen/_18ssp"
+                                    android:layout_height="@dimen/_18ssp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:srcCompat="@drawable/information" />
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/hrvShare"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:srcCompat="@drawable/ic_group_331" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/bloodLayout"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="15dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/shape_vital_details"
+                            android:orientation="vertical">
+
+                            <com.app.womba.utils.customViews.RegularTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:gravity="center"
+                                android:text="@string/blood_pressure_mmhg"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_12ssp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                            <com.app.womba.utils.customViews.RegularTextView
+                                android:id="@+id/bpValue"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center"
+                                android:text="0/0"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_28ssp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                            <com.app.womba.utils.customViews.RegularTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+
+                                android:gravity="center"
+                                android:text="@string/coming_soon"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_12ssp"                                android:layout_weight="1"
+
+                                android:visibility="visible"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/bloodInfo"
+                                    android:layout_width="@dimen/_18ssp"
+                                    android:layout_height="@dimen/_18ssp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:srcCompat="@drawable/information" />
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/bloodShare"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:srcCompat="@drawable/ic_group_331" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="28dp"
+                        android:layout_marginBottom="@dimen/_14ssp"
+                        android:baselineAligned="false"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <com.app.womba.utils.customViews.RegularTextView
+                            android:id="@+id/saveBtn"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/shape_full_report_button"
+                            android:elevation="8dp"
+                            android:gravity="center"
+                            android:padding="@dimen/_8sdp"
+                            android:text="Save"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_12ssp"
+                            android:visibility="visible" />
+
+                        <com.app.womba.utils.customViews.RegularTextView
+                            android:id="@+id/fullReport"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/shape_full_report_button"
+                            android:elevation="8dp"
+                            android:ems="14"
+                            android:gravity="center"
+                            android:padding="@dimen/_8sdp"
+                            android:text="Share Full Report"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_12ssp"
+                            android:visibility="visible" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/bottom_sheet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#1c1e1b"
+                android:fitsSystemWindows="true"
+                android:orientation="vertical"
+                app:behavior_hideable="true"
+                app:behavior_peekHeight="0dp"
+                app:layout_behavior="@string/bottom_sheet_behavior">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/downArrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@android:color/transparent"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_keyboard_arrow_down_black_24dp" />
+
+                <TextView
+                    android:id="@+id/titleTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_16ssp" />
+
+                <TextView
+                    android:id="@+id/infoTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14ssp" />
+
+                <include
+                    android:id="@+id/respirationTable"
+                    layout="@layout/respiration_table"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="20dp"
+                    android:visibility="gone" />
+
+                <include
+                    android:id="@+id/oxygenTable"
+                    layout="@layout/oxygen_table"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="20dp"
+                    android:visibility="gone" />
+
+                <include
+                    android:id="@+id/stressTable"
+                    layout="@layout/stress_table"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="20dp"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</LinearLayout>
+</layout>

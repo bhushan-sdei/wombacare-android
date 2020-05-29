@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorAccent"
+            android:elevation="@dimen/_4sdp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/toolbarConstraint"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/imgLogo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Profile"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <RelativeLayout
+            android:id="@+id/imageView_doctor_profile"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_30sdp"
+            app:layout_constraintBottom_toTopOf="@+id/txtBasicProfile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="@dimen/_150sdp"
+                android:background="@drawable/circular_white"
+                android:src="@drawable/image_place_holder"
+                app:civ_border_color="#E1E7F0"
+                app:civ_border_width="@dimen/_1ssp" />
+
+            <ImageView
+                android:id="@+id/imgAdd"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/circle_edit_profile"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_camera"
+                app:srcCompat="@drawable/ic_camera"
+                tools:ignore="VectorDrawableCompat" />
+
+        </RelativeLayout>
+
+        <com.app.womba.utils.customViews.BoldTextView
+            android:id="@+id/txtDocName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="@dimen/_22sdp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="@dimen/_22sdp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintBottom_toTopOf="@+id/txtBasicProfile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_doctor_profile" />
+
+        <!--        <ImageView-->
+        <!--            android:id="@+id/imageView_doctor_profile"-->
+        <!--            android:layout_width="128dp"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            android:layout_marginBottom="8dp"-->
+        <!--            android:layout_marginEnd="8dp"-->
+        <!--            android:layout_marginLeft="8dp"-->
+        <!--            android:layout_marginRight="8dp"-->
+        <!--            android:layout_marginStart="8dp"-->
+        <!--            android:elevation="6dp"-->
+        <!--            app:layout_constraintBottom_toTopOf="@+id/guideline19"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintHorizontal_bias="0.498"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="@+id/guideline20"-->
+        <!--            app:layout_constraintVertical_bias="0.0"/>-->
+
+        <com.app.womba.utils.customViews.SemiBoldTextView
+            android:id="@+id/txtBasicProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_profile_settings"
+            android:drawableRight="@drawable/ic_keyboard_arrow_right_black_24dp"
+            android:drawablePadding="8dp"
+            android:elevation="6dp"
+            android:padding="@dimen/_10sdp"
+            android:text="Basic Profile"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="334dp" />
+
+        <View
+            android:id="@+id/view9"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="#E1E7F0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtChangePassword" />
+
+
+        <com.app.womba.utils.customViews.SemiBoldTextView
+            android:id="@+id/txtHealthProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_heartbeat_24dp"
+            android:drawableRight="@drawable/ic_keyboard_arrow_right_black_24dp"
+            android:drawablePadding="8dp"
+            android:elevation="6dp"
+            android:padding="@dimen/_10sdp"
+            android:text="Health Profile"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="334dp" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="#E1E7F0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtChangePassword" />
+
+        <com.app.womba.utils.customViews.SemiBoldTextView
+            android:id="@+id/txtLifeStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_smile_24dp"
+            android:drawableRight="@drawable/ic_keyboard_arrow_right_black_24dp"
+            android:drawablePadding="8dp"
+            android:elevation="6dp"
+            android:padding="@dimen/_10sdp"
+            android:text="Life style"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="334dp" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="#E1E7F0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtChangePassword" />
+
+        <com.app.womba.utils.customViews.SemiBoldTextView
+            android:id="@+id/txtVitalScan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_vital_scan"
+            android:drawableRight="@drawable/ic_keyboard_arrow_right_black_24dp"
+            android:drawablePadding="8dp"
+            android:padding="@dimen/_10sdp"
+            android:text="Vital Scan"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view7" />
+
+        <View
+            android:id="@+id/viewVital"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="#E1E7F0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.app.womba.utils.customViews.SemiBoldTextView
+            android:id="@+id/txtVitalsHistory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_vital_history"
+            android:drawableRight="@drawable/ic_keyboard_arrow_right_black_24dp"
+            android:drawablePadding="8dp"
+            android:padding="@dimen/_10sdp"
+            android:text="Vitals History"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view8" />
+
+        <View
+            android:id="@+id/view8"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="#E1E7F0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtBasicProfile" />
+
+        <com.app.womba.utils.customViews.SemiBoldTextView
+            android:id="@+id/txtChangePassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_lock_24dp"
+            android:drawableRight="@drawable/ic_keyboard_arrow_right_black_24dp"
+            android:drawablePadding="8dp"
+            android:padding="@dimen/_10sdp"
+            android:text="Change Password"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view7" />
+
+        <View
+            android:id="@+id/view7"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="#E1E7F0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtHealthProfile" />
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_32sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@drawable/logout_buton_bg"
+            android:text="Log Out"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view9" />
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.app.womba.utils.customViews.SwipeRevealLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    app:dragFromEdge="right">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:padding="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/edit_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:background="#00D0E6"
+                android:padding="@dimen/_8sdp"
+                app:srcCompat="@drawable/ic_edit" />
+
+            <ImageButton
+                android:id="@+id/delete_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:background="#DF4959"
+                android:padding="@dimen/_8sdp"
+                app:srcCompat="@drawable/ic_delete_white_32dp" />
+
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true">
+
+        <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="5dp">
+
+            <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.app.womba.utils.customViews.RegularTextView
+                        android:id="@+id/lblSpeciality"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Endocrinology"
+                        android:textSize="@dimen/_12ssp"
+                        android:padding="@dimen/_12sdp" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </FrameLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
+</com.app.womba.utils.customViews.SwipeRevealLayout>

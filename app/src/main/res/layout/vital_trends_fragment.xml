@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/parentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_marginEnd="17dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <RadioButton
+                    android:id="@+id/lastWeek"
+                    android:layout_width="wrap_content"
+                    android:layout_height="41dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_bg_color_radio_button"
+                    android:button="@null"
+                    android:checked="true"
+                 
+                    android:gravity="center"
+                    android:text="@string/last_week"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp" />
+                <!---->
+
+                <RadioButton
+                    android:id="@+id/last14Days"
+                    android:layout_width="wrap_content"
+                    android:layout_height="41dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_bg_color_radio_button"
+                    android:button="@null"
+                    android:checked="false"
+                 
+                    android:gravity="center"
+                    android:text="@string/last_14_days"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp" />
+
+                <RadioButton
+                    android:id="@+id/last21Days"
+                    android:layout_width="wrap_content"
+                    android:layout_height="41dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_bg_color_radio_button"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="@string/last_21_days"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp" />
+
+            </RadioGroup>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+             
+                android:gravity="center"
+                android:textColor="@color/_315d9e"
+                android:textSize="@dimen/_13sdp" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/AppTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:cardBackgroundColor="#f7f7f7"
+                app:cardCornerRadius="13dp"
+                app:cardElevation="3dp"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="16dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/appCompatTextView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                     
+                        android:gravity="center"
+                        android:text="@string/heart_rate_bpm"
+                        android:textColor="@color/_315d9e"
+                        android:textSize="@dimen/_13sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/heartBarGraph"
+                        android:layout_width="0dp"
+                        android:layout_height="250dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView2" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/AppTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:cardBackgroundColor="#f7f7f7"
+                app:cardCornerRadius="13dp"
+                app:cardElevation="3dp"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="16dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/appCompatTextView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                     
+                        android:gravity="center"
+                        android:text="@string/respiration"
+                        android:textColor="@color/_315d9e"
+                        android:textSize="@dimen/_13sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/respirationBarGraph"
+                        android:layout_width="0dp"
+                        android:layout_height="250dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView3" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/AppTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:cardBackgroundColor="#f7f7f7"
+                app:cardCornerRadius="13dp"
+                app:cardElevation="3dp"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="16dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/appCompatTextView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                     
+                        android:gravity="center"
+                        android:text="@string/oxygen_saturation"
+                        android:textColor="@color/_315d9e"
+                        android:textSize="@dimen/_13sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/oxygenBarGraph"
+                        android:layout_width="0dp"
+                        android:layout_height="250dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView5" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/AppTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:cardBackgroundColor="#f7f7f7"
+                app:cardCornerRadius="13dp"
+                app:cardElevation="3dp"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="16dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/appCompatTextView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                     
+                        android:gravity="center"
+                        android:text="@string/hrv_sdnn"
+                        android:textColor="@color/_315d9e"
+                        android:textSize="@dimen/_13sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/hrvBarGraph"
+                        android:layout_width="0dp"
+                        android:layout_height="250dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView6" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/AppTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:cardBackgroundColor="#f7f7f7"
+                app:cardCornerRadius="13dp"
+                app:cardElevation="3dp"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="16dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.app.womba.utils.customViews.RegularTextView
+                        android:id="@+id/appCompatTextView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/stress"
+                        android:textColor="@color/_315d9e"
+                        android:textSize="@dimen/_13sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/stressBarGraph"
+                        android:layout_width="0dp"
+                        android:layout_height="250dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView4" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                style="@style/AppTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:cardBackgroundColor="#f7f7f7"
+                app:cardCornerRadius="13dp"
+                app:cardElevation="3dp"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="16dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.app.womba.utils.customViews.RegularTextView
+                        android:id="@+id/appCompatTextView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/blood_pressure_mmhg"
+                        android:textColor="@color/_315d9e"
+                        android:textSize="@dimen/_13sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.app.womba.utils.customViews.RegularTextView
+                        android:id="@+id/appCompatTextView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/coming_soon"
+                        android:textColor="@color/_315d9e"
+                        android:textSize="@dimen/_18sdp"
+                        app:layout_constraintBottom_toBottomOf="@+id/bpBarGraph"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.45" />
+
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/bpBarGraph"
+                        android:layout_width="0dp"
+                        android:layout_height="250dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView7" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </ScrollView>
+</layout>

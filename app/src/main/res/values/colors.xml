@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#315D9E</color>
+    <color name="colorPrimaryDark">#315D9E</color>
+    <color name="colorAccent">#315D9E</color>
+    <color name="textColor">#515974</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="gray">#3A3A3A</color>
+    <color name="grayLight">#E1E7F0</color>
+    <color name="red">#FF1100</color>
+
+    <color name="colorTheme">#315D9E</color>
+    <color name="colorBG">#315D9E</color>
+    <color name="colorBookAppointment">#638CC9</color>
+    <color name="colorChatDoctor">#932D84</color>
+    <color name="colorMedicalRecords">#008FAB</color>
+    <color name="orange_700">#F57C00</color>
+
+    <color name="_315d9e">#315D9E</color>
+
+
+    <color name="slot_available">#638CC9</color>
+    <color name="slot_booked">#F38065</color>
+
+</resources>

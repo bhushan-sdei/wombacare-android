@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.app.womba.ui.profile.lifestyle.LifeStyleVM" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/toolbarConstraint"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imgBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
+                    <com.app.womba.utils.customViews.RegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="?android:attr/actionBarSize"
+                        android:gravity="center"
+                        android:text="@string/lifestyle"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/_17ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:context="com.app.fragments.patientInfo.LifeStyleFragment">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:elevation="8dp"
+                    android:fadingEdge="vertical"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="4dp"
+                    app:cardPreventCornerOverlap="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        app:layout_constraintEnd_toStartOf="@+id/spinner_state"
+                        app:layout_constraintStart_toStartOf="@+id/spinner_state">
+
+
+                        <com.app.womba.utils.customViews.SemiBoldTextView
+                            android:id="@+id/textView_dietary_restrictions"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:text="Do you follow any dietary restrictions?"
+                            android:textSize="@dimen/_12ssp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <fr.ganfra.materialspinner.MaterialSpinner
+                            android:id="@+id/spinner_dietary_restrictions"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView_dietary_restrictions"
+                            app:ms_alignLabels="false"
+                            app:ms_arrowColor="#00A4C9"
+                            app:ms_arrowSize="10dp"
+                            app:ms_baseColor="@color/colorPrimary"
+                            app:ms_enableErrorLabel="false"
+                            app:ms_enableFloatingLabel="false"
+                            app:ms_errorColor="@color/red"
+                            app:ms_floatingLabelColor="#00A4C9"
+                            app:ms_floatingLabelText="floating label"
+                            app:ms_highlightColor="@color/colorPrimary"
+                            app:ms_hint="Dietary Restrictions"
+                            app:ms_hintColor="#00A4C9"
+                            app:ms_multiline="false" />
+
+                        <com.app.womba.utils.customViews.SemiBoldTextView
+                            android:id="@+id/textView_alcohol_consumption"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="24dp"
+                            android:layout_marginEnd="8dp"
+
+                            android:layout_marginRight="8dp"
+                            android:text="How would you classify your consumption of alcohol?"
+                            android:textSize="@dimen/_12ssp"
+
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/spinner_dietary_restrictions" />
+
+                        <fr.ganfra.materialspinner.MaterialSpinner
+                            android:id="@+id/spinner_alcohol_consumption"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView_alcohol_consumption"
+                            app:ms_alignLabels="false"
+                            app:ms_arrowColor="#00A4C9"
+                            app:ms_arrowSize="10dp"
+                            app:ms_baseColor="@color/colorPrimary"
+                            app:ms_enableErrorLabel="false"
+                            app:ms_enableFloatingLabel="false"
+                            app:ms_errorColor="@color/red"
+                            app:ms_floatingLabelColor="#00A4C9"
+                            app:ms_floatingLabelText="floating label"
+                            app:ms_highlightColor="@color/colorPrimary"
+                            app:ms_hint="Alcohol"
+                            app:ms_hintColor="#00A4C9"
+                            app:ms_multiline="false" />
+
+                        <com.app.womba.utils.customViews.SemiBoldTextView
+                            android:id="@+id/textView_smoke"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="24dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:text="Do you smoke or chew tobacco or recently quit?"
+
+                            android:textSize="@dimen/_12ssp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/spinner_alcohol_consumption" />
+
+                        <fr.ganfra.materialspinner.MaterialSpinner
+                            android:id="@+id/spinner_provider"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView_smoke"
+                            app:ms_alignLabels="false"
+                            app:ms_arrowColor="#00A4C9"
+                            app:ms_arrowSize="10dp"
+                            app:ms_baseColor="@color/colorPrimary"
+                            app:ms_enableErrorLabel="false"
+                            app:ms_enableFloatingLabel="false"
+                            app:ms_errorColor="@color/red"
+                            app:ms_floatingLabelColor="#00A4C9"
+                            app:ms_floatingLabelText="floating label"
+                            app:ms_highlightColor="@color/colorPrimary"
+                            app:ms_hint="Tobacco"
+                            app:ms_hintColor="#00A4C9"
+                            app:ms_multiline="false" />
+
+                        <com.app.womba.utils.customViews.SemiBoldTextView
+                            android:id="@+id/textView_sex"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:text="How often do you engage in sex?"
+
+                            android:textSize="@dimen/_12ssp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.479"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/spinner_provider" />
+
+
+                        <fr.ganfra.materialspinner.MaterialSpinner
+                            android:id="@+id/spinner_sex"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.494"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView_sex"
+                            app:ms_alignLabels="false"
+                            app:ms_arrowColor="#00A4C9"
+                            app:ms_arrowSize="10dp"
+                            app:ms_baseColor="@color/colorPrimary"
+                            app:ms_enableErrorLabel="false"
+                            app:ms_enableFloatingLabel="false"
+                            app:ms_errorColor="@color/red"
+                            app:ms_floatingLabelColor="#00A4C9"
+                            app:ms_floatingLabelText="floating label"
+                            app:ms_highlightColor="@color/colorPrimary"
+                            app:ms_hint="Sexaul History"
+                            app:ms_hintColor="#00A4C9"
+                            app:ms_multiline="false" />
+
+                        <com.app.womba.utils.customViews.SemiBoldTextView
+                            android:id="@+id/textView_marital_status"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:text="Do you have diabetes?"
+
+                            android:textSize="@dimen/_12ssp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/spinner_sex" />
+
+                        <fr.ganfra.materialspinner.MaterialSpinner
+                            android:id="@+id/spinner_marital_status"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView_marital_status"
+                            app:ms_alignLabels="false"
+                            app:ms_arrowColor="#00A4C9"
+                            app:ms_arrowSize="10dp"
+                            app:ms_baseColor="@color/colorPrimary"
+                            app:ms_enableErrorLabel="false"
+                            app:ms_enableFloatingLabel="false"
+                            app:ms_errorColor="@color/red"
+                            app:ms_floatingLabelColor="#00A4C9"
+                            app:ms_floatingLabelText="floating label"
+                            app:ms_highlightColor="@color/colorPrimary"
+                            app:ms_hint="Diabetes"
+                            app:ms_hintColor="#00A4C9"
+                            app:ms_multiline="false" />
+
+                        <com.app.womba.utils.customViews.SemiBoldTextView
+                            android:id="@+id/textView_caffeine_consume"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:text="Do you consume caffeine?"
+
+                            android:textSize="@dimen/_12ssp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/spinner_marital_status" />
+
+
+                        <fr.ganfra.materialspinner.MaterialSpinner
+                            android:id="@+id/spinner_caffeine_consume"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView_caffeine_consume"
+                            app:ms_alignLabels="false"
+                            app:ms_arrowColor="#00A4C9"
+                            app:ms_arrowSize="10dp"
+                            app:ms_baseColor="@color/colorPrimary"
+                            app:ms_enableErrorLabel="false"
+                            app:ms_enableFloatingLabel="false"
+                            app:ms_errorColor="@color/red"
+                            app:ms_floatingLabelColor="#00A4C9"
+                            app:ms_floatingLabelText="floating label"
+                            app:ms_highlightColor="@color/colorPrimary"
+                            app:ms_hint="Caffeine"
+                            app:ms_hintColor="#00A4C9"
+                            app:ms_multiline="false" />
+
+                        <com.app.womba.utils.customViews.SemiBoldTextView
+                            android:id="@+id/textView_living_arrangements"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:text="Do you go for annual physical?"
+                            android:textSize="@dimen/_12ssp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.52"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/spinner_caffeine_consume" />
+
+
+                        <fr.ganfra.materialspinner.MaterialSpinner
+                            android:id="@+id/spinner_living_arrangements"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView_living_arrangements"
+                            app:ms_alignLabels="false"
+                            app:ms_arrowColor="#00A4C9"
+                            app:ms_arrowSize="10dp"
+                            app:ms_baseColor="@color/colorPrimary"
+                            app:ms_enableErrorLabel="false"
+                            app:ms_enableFloatingLabel="false"
+                            app:ms_errorColor="@color/red"
+                            app:ms_floatingLabelColor="#00A4C9"
+                            app:ms_floatingLabelText="floating label"
+                            app:ms_highlightColor="@color/colorPrimary"
+                            app:ms_hint="Physical Annually"
+                            app:ms_hintColor="#00A4C9"
+                            app:ms_multiline="false" />
+
+                        <com.app.womba.utils.customViews.SemiBoldTextView
+                            android:id="@+id/textView_excercise_regula"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:text="Do you exercise on regular basis?"
+                            android:textSize="@dimen/_12ssp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.52"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/spinner_living_arrangements" />
+
+                        <fr.ganfra.materialspinner.MaterialSpinner
+                            android:id="@+id/spinner_excercise"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView_excercise_regula"
+                            app:ms_alignLabels="false"
+                            app:ms_arrowColor="#00A4C9"
+                            app:ms_arrowSize="10dp"
+                            app:ms_baseColor="@color/colorPrimary"
+                            app:ms_enableErrorLabel="false"
+                            app:ms_enableFloatingLabel="false"
+                            app:ms_errorColor="@color/red"
+                            app:ms_floatingLabelColor="#00A4C9"
+                            app:ms_floatingLabelText="floating label"
+                            app:ms_highlightColor="@color/colorPrimary"
+                            app:ms_hint="Exercise Regularly"
+                            app:ms_hintColor="#00A4C9"
+                            app:ms_multiline="false" />
+
+    <com.app.womba.utils.customViews.SemiBoldTextView
+                            android:id="@+id/textView_drug"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:text="Have you ever taken non- prescribed drug or medication?"
+                            android:textSize="@dimen/_12ssp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.52"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/spinner_excercise" />
+
+                        <fr.ganfra.materialspinner.MaterialSpinner
+                            android:id="@+id/spinner_drug"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView_drug"
+                            app:ms_alignLabels="false"
+                            app:ms_arrowColor="#00A4C9"
+                            app:ms_arrowSize="10dp"
+                            app:ms_baseColor="@color/colorPrimary"
+                            app:ms_enableErrorLabel="false"
+                            app:ms_enableFloatingLabel="false"
+                            app:ms_errorColor="@color/red"
+                            app:ms_floatingLabelColor="#00A4C9"
+                            app:ms_floatingLabelText="floating label"
+                            app:ms_highlightColor="@color/colorPrimary"
+                            app:ms_hint="Other Drugs"
+                            app:ms_hintColor="#00A4C9"
+                            app:ms_multiline="false" />
+
+
+    <com.app.womba.utils.customViews.SemiBoldTextView
+                            android:id="@+id/textView_fitnes_tracker"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:text="Do you use any fitness tracker?"
+                            android:textSize="@dimen/_12ssp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.52"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/spinner_drug" />
+
+                        <fr.ganfra.materialspinner.MaterialSpinner
+                            android:id="@+id/spinner_fitness_tracker"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView_fitnes_tracker"
+                            app:ms_alignLabels="false"
+                            app:ms_arrowColor="#00A4C9"
+                            app:ms_arrowSize="10dp"
+                            app:ms_baseColor="@color/colorPrimary"
+                            app:ms_enableErrorLabel="false"
+                            app:ms_enableFloatingLabel="false"
+                            app:ms_errorColor="@color/red"
+                            app:ms_floatingLabelColor="#00A4C9"
+                            app:ms_floatingLabelText="floating label"
+                            app:ms_highlightColor="@color/colorPrimary"
+                            app:ms_hint="Fitness Tracker"
+                            app:ms_hintColor="#00A4C9"
+                            app:ms_multiline="false" />
+
+
+
+    <com.app.womba.utils.customViews.SemiBoldTextView
+                            android:id="@+id/textView_weekend_sleep"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:text="On a weekday how many hours do you typically sleep?"
+                            android:textSize="@dimen/_12ssp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.52"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/spinner_fitness_tracker" />
+
+                        <fr.ganfra.materialspinner.MaterialSpinner
+                            android:id="@+id/spinner_weekend_sleep"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView_weekend_sleep"
+                            app:ms_alignLabels="false"
+                            app:ms_arrowColor="#00A4C9"
+                            app:ms_arrowSize="10dp"
+                            app:ms_baseColor="@color/colorPrimary"
+                            app:ms_enableErrorLabel="false"
+                            app:ms_enableFloatingLabel="false"
+                            app:ms_errorColor="@color/red"
+                            app:ms_floatingLabelColor="#00A4C9"
+                            app:ms_floatingLabelText="floating label"
+                            app:ms_highlightColor="@color/colorPrimary"
+                            app:ms_hint="Weekday Sleep"
+                            app:ms_hintColor="#00A4C9"
+                            app:ms_multiline="false" />
+
+
+<!--                        <com.app.womba.utils.customViews.SemiBoldTextView-->
+<!--                            android:id="@+id/textView_substances"-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="8dp"-->
+<!--                            android:layout_marginLeft="8dp"-->
+<!--                            android:layout_marginTop="16dp"-->
+<!--                            android:layout_marginEnd="8dp"-->
+<!--                            android:layout_marginRight="8dp"-->
+<!--                            android:text="Any other Substances?"-->
+<!--                            android:textSize="@dimen/_12ssp"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toBottomOf="@+id/spinner_drug" />-->
+
+<!--                        <com.google.android.material.textfield.TextInputLayout-->
+<!--                            android:id="@+id/editText_substances"-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toBottomOf="@+id/textView_substances">-->
+
+<!--                            <EditText-->
+<!--                                android:id="@+id/substances"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginStart="8dp"-->
+<!--                                android:layout_marginLeft="8dp"-->
+<!--                                android:layout_marginTop="8dp"-->
+<!--                                android:layout_marginEnd="8dp"-->
+<!--                                android:layout_marginRight="8dp"-->
+<!--                                android:ems="10"-->
+<!--                                android:hint="Other Substances"-->
+<!--                                android:inputType="textPersonName"-->
+<!--                                android:textSize="16sp" />-->
+<!--                        </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--                        <com.app.womba.utils.customViews.SemiBoldTextView-->
+<!--                            android:id="@+id/textView_occupation"-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_margin="8dp"-->
+<!--                            android:text="What is your Occupation?"-->
+
+<!--                            android:textSize="@dimen/_12ssp"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toBottomOf="@+id/editText_substances" />-->
+
+<!--                        <com.google.android.material.textfield.TextInputLayout-->
+<!--                            android:id="@+id/editText_occupation"-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toBottomOf="@+id/textView_occupation">-->
+
+<!--                            <EditText-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_margin="8dp"-->
+<!--                                android:ems="10"-->
+<!--                                android:hint="Occupation"-->
+<!--                                android:inputType="textPersonName"-->
+<!--                                android:textSize="16sp" />-->
+
+<!--                        </com.google.android.material.textfield.TextInputLayout>-->
+
+                        <Button
+                            android:id="@+id/button_next_lifestyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginTop="24dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginRight="16dp"
+                            android:layout_marginBottom="24dp"
+                            android:background="@drawable/login_buton_bg"
+                            android:text="Next"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/guideline12"
+                            app:layout_constraintStart_toStartOf="@+id/guideline14"
+                            app:layout_constraintTop_toBottomOf="@+id/spinner_weekend_sleep"
+                            app:layout_constraintVertical_bias="0.53" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline12"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.92" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline14"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.08" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+</layout>

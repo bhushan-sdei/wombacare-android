@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TableRow android:background="@drawable/shape_table_border">
+
+        <com.app.womba.utils.customViews.RegularTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_table_border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/age"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold" />
+
+        <com.app.womba.utils.customViews.RegularTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_table_border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/rpm_range"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold" />
+
+    </TableRow>
+
+    <TableRow android:background="@drawable/shape_table_border">
+
+        <com.app.womba.utils.customViews.RegularTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_table_border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/_6y_10y"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp" />
+
+        <com.app.womba.utils.customViews.RegularTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_table_border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/_17_23"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp" />
+
+    </TableRow>
+
+    <TableRow android:background="@drawable/shape_table_border">
+
+        <com.app.womba.utils.customViews.RegularTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_table_border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/adults"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp" />
+
+        <com.app.womba.utils.customViews.RegularTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_table_border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/_12_18"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp" />
+
+    </TableRow>
+
+    <TableRow android:background="@drawable/shape_table_border">
+
+        <com.app.womba.utils.customViews.RegularTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_table_border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/above_65y"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp" />
+
+        <com.app.womba.utils.customViews.RegularTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_table_border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/_12_28"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp" />
+
+    </TableRow>
+</TableLayout>

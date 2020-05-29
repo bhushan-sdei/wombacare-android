@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.app.womba.ui.profile.basicProfile.BasicProfileVM" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorAccent"
+            android:elevation="@dimen/_4sdp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/toolbarConstraint"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imgBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_5sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
+                <com.app.womba.utils.customViews.SemiBoldTextView
+                    android:id="@+id/imgLogo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Profile"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_8ssp"
+                tools:context="com.app.activities.BasicDetailActivity">
+
+
+                <TextView
+                    android:id="@+id/textView_basic_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8ssp"
+                    android:text="Basic Info"
+                    android:textSize="@dimen/_14ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/textView_about"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_group_303" />
+
+                <TextView
+                    android:id="@+id/textView_about"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8ssp"
+                    android:text="About"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_basic_info" />
+
+                <TextView
+                    android:id="@+id/textView_about_description"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8ssp"
+                    android:text="Sharing this information lets provider give you more helpful and personalize answer"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_about" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_first_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8ssp"
+                    app:layout_constraintEnd_toStartOf="@+id/til_last_name"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_about_description">
+
+                    <EditText
+                        android:id="@+id/editText_first_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="First name"
+                        android:inputType="textPersonName"
+                        android:textSize="@dimen/_12ssp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_last_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/til_first_name"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_about_description">
+
+                    <EditText
+                        android:id="@+id/editText_last_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Last name"
+                        android:inputType="textPersonName"
+                        android:textSize="@dimen/_12ssp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8ssp"
+                    android:checkedButton="@id/radioButton_male"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_gender">
+
+                    <RadioButton
+                        android:id="@+id/radioButton_male"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:buttonTint="@color/colorAccent"
+                        android:text="Male"
+                        android:textSize="@dimen/_13ssp" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton_female"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:buttonTint="@color/colorAccent"
+                        android:text="Female"
+                        android:textSize="@dimen/_13ssp" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/textView_gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8ssp"
+                    android:text="Gender"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/til_first_name" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_address"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/radioGroup">
+
+                    <EditText
+                        android:id="@+id/editText_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Address"
+                        android:inputType="textPostalAddress"
+                        android:textSize="@dimen/_12ssp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/spinner_country"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8ssp"
+                    app:layout_constraintEnd_toStartOf="@+id/spinner_state"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/til_address">
+
+                    <EditText
+                        android:id="@+id/edCountry"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Country"
+                        android:inputType="textPersonName"
+                        android:textSize="@dimen/_12ssp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!--                <fr.ganfra.materialspinner.MaterialSpinner-->
+                <!--                    android:id="@+id/spinner_country"-->
+                <!--                    android:layout_width="0dp"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_margin="@dimen/_8ssp"-->
+                <!--                    android:textSize="@dimen/_12ssp"-->
+                <!--                    app:layout_constraintEnd_toStartOf="@+id/spinner_state"-->
+                <!--                    app:layout_constraintHorizontal_bias="0.5"-->
+                <!--                    app:layout_constraintHorizontal_chainStyle="packed"-->
+                <!--                    app:layout_constraintStart_toStartOf="parent"-->
+                <!--                    app:layout_constraintTop_toBottomOf="@+id/til_address"-->
+                <!--                    app:ms_alignLabels="false"-->
+                <!--                    app:ms_arrowColor="@color/gray"-->
+                <!--                    app:ms_arrowSize="10dp"-->
+                <!--                    app:ms_baseColor="@color/gray"-->
+                <!--                    app:ms_enableErrorLabel="true"-->
+                <!--                    app:ms_enableFloatingLabel="false"-->
+                <!--                    app:ms_errorColor="@color/red"-->
+                <!--                    app:ms_floatingLabelColor="#00A4C9"-->
+                <!--                    app:ms_floatingLabelText="floating label"-->
+                <!--                    app:ms_highlightColor="@color/colorPrimary"-->
+                <!--                    app:ms_hint="Country Name"-->
+                <!--                    app:ms_hintColor="@color/gray"-->
+                <!--                    app:ms_hintTextSize="@dimen/_12ssp"-->
+                <!--                    app:ms_multiline="false" />-->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/spinner_state"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/spinner_country"
+                    app:layout_constraintTop_toBottomOf="@+id/til_address">
+
+                    <EditText
+                        android:id="@+id/edState"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="State"
+                        android:inputType="textPersonName"
+                        android:textSize="@dimen/_12ssp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--                <fr.ganfra.materialspinner.MaterialSpinner-->
+                <!--                    android:id="@+id/spinner_state"-->
+                <!--                    android:layout_width="0dp"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_margin="@dimen/_8ssp"-->
+                <!--                    android:textSize="@dimen/_12ssp"-->
+                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                    app:layout_constraintHorizontal_bias="0.5"-->
+                <!--                    app:layout_constraintStart_toEndOf="@+id/spinner_country"-->
+                <!--                    app:layout_constraintTop_toBottomOf="@+id/til_address"-->
+                <!--                    app:ms_alignLabels="false"-->
+                <!--                    app:ms_arrowColor="@color/gray"-->
+                <!--                    app:ms_arrowSize="10dp"-->
+                <!--                    app:ms_baseColor="@color/gray"-->
+                <!--                    app:ms_enableErrorLabel="true"-->
+                <!--                    app:ms_enableFloatingLabel="false"-->
+                <!--                    app:ms_errorColor="@color/red"-->
+                <!--                    app:ms_floatingLabelColor="#00A4C9"-->
+                <!--                    app:ms_floatingLabelText="floating label"-->
+                <!--                    app:ms_highlightColor="@color/colorPrimary"-->
+                <!--                    app:ms_hint="State"-->
+                <!--                    app:ms_hintColor="@color/gray"-->
+                <!--                    app:ms_hintTextSize="@dimen/_12ssp"-->
+                <!--                    app:ms_multiline="false" />-->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/spinner_city"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8ssp"
+                    app:layout_constraintEnd_toEndOf="@+id/spinner_country"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/spinner_country">
+
+                    <EditText
+                        android:id="@+id/edCity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="City"
+                        android:inputType="textPersonName"
+                        android:textSize="@dimen/_12ssp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!--                <fr.ganfra.materialspinner.MaterialSpinner-->
+                <!--                    android:id="@+id/spinner_city"-->
+                <!--                    android:layout_width="0dp"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_margin="@dimen/_8ssp"-->
+                <!--                    android:textSize="@dimen/_12ssp"-->
+                <!--                    app:layout_constraintEnd_toEndOf="@+id/spinner_country"-->
+                <!--                    app:layout_constraintHorizontal_bias="0.5"-->
+                <!--                    app:layout_constraintStart_toStartOf="parent"-->
+                <!--                    app:layout_constraintTop_toBottomOf="@+id/spinner_country"-->
+                <!--                    app:ms_alignLabels="false"-->
+                <!--                    app:ms_arrowColor="@color/gray"-->
+                <!--                    app:ms_arrowSize="10dp"-->
+                <!--                    app:ms_baseColor="@color/gray"-->
+                <!--                    app:ms_enableErrorLabel="true"-->
+                <!--                    app:ms_enableFloatingLabel="false"-->
+                <!--                    app:ms_errorColor="@color/red"-->
+                <!--                    app:ms_floatingLabelColor="#00A4C9"-->
+                <!--                    app:ms_floatingLabelText="floating label"-->
+                <!--                    app:ms_highlightColor="@color/colorPrimary"-->
+                <!--                    app:ms_hint="City"-->
+                <!--                    app:ms_hintColor="@color/gray"-->
+                <!--                    app:ms_hintTextSize="@dimen/_12ssp"-->
+                <!--                    app:ms_multiline="false" />-->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_zip"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_8ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/spinner_state"
+                    app:layout_constraintTop_toBottomOf="@+id/spinner_state">
+
+                    <EditText
+                        android:id="@+id/editText_zip"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Zip Code (optional)"
+                        android:inputType="number"
+                        android:maxLength="6"
+                        android:textSize="@dimen/_13ssp"
+                        app:ms_hintTextSize="@dimen/_13ssp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:id="@+id/llPhoneNumber"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/til_dob">
+
+                    <com.hbb20.CountryCodePicker
+                        android:id="@+id/cpCountryCode"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="match_parent"
+                        app:contentColor="@color/black"
+                        app:showFlag="true"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        app:hideNameCode="true"
+                        app:textSize="@dimen/_12ssp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtInputPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edPhoneNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Phone number"
+                            android:inputType="number" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_dob"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/til_zip">
+
+                    <EditText
+                        android:id="@+id/editText_dob"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:clickable="true"
+                        android:editable="false"
+                        android:focusableInTouchMode="false"
+                        android:hint="DOB"
+                        android:inputType="date"
+                        android:textSize="@dimen/_12ssp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/textView_language"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8ssp"
+                    android:text="What is your Language?"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/llPhoneNumber" />
+
+
+                <!--                <fr.ganfra.materialspinner.MaterialSpinner-->
+                <!--                    android:id="@+id/spinner_language"-->
+                <!--                    android:layout_width="0dp"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_margin="@dimen/_8ssp"-->
+                <!--                    android:textSize="@dimen/_12ssp"-->
+                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                    app:layout_constraintStart_toStartOf="parent"-->
+                <!--                    app:layout_constraintTop_toBottomOf="@+id/textView_language"-->
+                <!--                    app:ms_alignLabels="false"-->
+                <!--                    app:ms_arrowColor="@color/gray"-->
+                <!--                    app:ms_arrowSize="10dp"-->
+                <!--                    app:ms_baseColor="@color/gray"-->
+                <!--                    app:ms_enableErrorLabel="true"-->
+                <!--                    app:ms_enableFloatingLabel="false"-->
+                <!--                    app:ms_errorColor="@color/red"-->
+                <!--                    app:ms_floatingLabelColor="#00A4C9"-->
+                <!--                    app:ms_floatingLabelText="floating label"-->
+                <!--                    app:ms_highlightColor="@color/colorPrimary"-->
+                <!--                    app:ms_hint="Ethnicity"-->
+                <!--                    app:ms_hintColor="@color/gray"-->
+                <!--                    app:ms_hintTextSize="@dimen/_12ssp"-->
+                <!--                    app:ms_multiline="false" />-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_Language"
+                    android:layout_width="match_parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_language"
+                    android:focusable="false"
+                    android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/spinner_language"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:editable="false"
+                    android:layout_margin="@dimen/_8ssp"
+                    android:hint=""
+                    android:textColorHint="@color/black"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:inputType="none"
+                    android:textSize="@dimen/_12ssp" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <TextView
+                    android:id="@+id/textView_ethnicity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8ssp"
+                    android:text="What is your Ethnicity?"
+                    android:textSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/til_Language" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/spinner_ethnicity"
+                    android:layout_width="match_parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_ethnicity"
+                    android:focusable="false"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/edEthnicity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_8ssp"
+                        android:hint=""
+                        android:textColorHint="@color/black"
+                        android:textSize="@dimen/_12ssp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+<!--                <fr.ganfra.materialspinner.MaterialSpinner-->
+<!--                    android:id="@+id/spinner_ethnicity"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_margin="@dimen/_8ssp"-->
+<!--                    android:textSize="@dimen/_12ssp"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/textView_ethnicity"-->
+<!--                    app:ms_alignLabels="false"-->
+<!--                    app:ms_arrowColor="@color/gray"-->
+<!--                    app:ms_arrowSize="10dp"-->
+<!--                    app:ms_baseColor="@color/gray"-->
+<!--                    app:ms_enableErrorLabel="true"-->
+<!--                    app:ms_enableFloatingLabel="false"-->
+<!--                    app:ms_errorColor="@color/red"-->
+<!--                    app:ms_floatingLabelColor="#00A4C9"-->
+<!--                    app:ms_floatingLabelText="floating label"-->
+<!--                    app:ms_highlightColor="@color/colorPrimary"-->
+<!--                    app:ms_hint="Ethnicity"-->
+<!--                    app:ms_hintColor="@color/gray"-->
+<!--                    app:ms_hintTextSize="@dimen/_12ssp"-->
+<!--                    app:ms_multiline="false" />-->
+
+                <LinearLayout
+                    android:id="@+id/llheight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8ssp"
+                    app:layout_constraintEnd_toStartOf="@+id/til_weight"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/spinner_ethnicity">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_height"
+                        android:layout_width="match_parent"
+                        android:focusable="false"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/editText_height"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:hint="Height in feets"
+                            android:focusable="false"
+                            android:clickable="false"
+                            android:inputType="none"
+                            android:textSize="@dimen/_12ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_weight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/llheight"
+                    app:layout_constraintTop_toBottomOf="@+id/spinner_ethnicity">
+
+                    <EditText
+
+                        android:id="@+id/editText_weight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="0123456789"
+                        android:ems="10"
+                        android:hint="Weight in Pound"
+                        android:inputType="number|none"
+                        android:maxLength="3"
+                        android:textSize="@dimen/_12ssp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_bmi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8ssp"
+                    app:layout_constraintEnd_toStartOf="@+id/sbloodgroup"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/llheight">
+
+                    <EditText
+                        android:id="@+id/editText_bmi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="BMI"
+                        android:inputType="number"
+                        android:textSize="@dimen/_12ssp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <fr.ganfra.materialspinner.MaterialSpinner
+                    android:id="@+id/sbloodgroup"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8ssp"
+                    android:layout_marginTop="@dimen/_10ssp"
+                    android:layout_marginEnd="@dimen/_8ssp"
+                    android:layout_marginBottom="@dimen/_8ssp"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/til_bmi"
+                    app:layout_constraintTop_toBottomOf="@+id/til_weight"
+                    app:ms_alignLabels="false"
+                    app:ms_arrowColor="@color/gray"
+                    app:ms_arrowSize="10dp"
+                    app:ms_baseColor="@color/gray"
+                    app:ms_enableErrorLabel="true"
+                    app:ms_enableFloatingLabel="false"
+                    app:ms_errorColor="@color/red"
+                    app:ms_floatingLabelColor="#00A4C9"
+                    app:ms_floatingLabelText="floating label"
+                    app:ms_highlightColor="@color/colorPrimary"
+                    app:ms_hint="Blood Group"
+                    app:ms_hintColor="@color/gray"
+                    app:ms_hintTextSize="@dimen/_12ssp"
+                    app:ms_multiline="false" />
+
+                <Button
+                    android:id="@+id/button_next_basic_info"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/login_buton_bg"
+                    android:text="Update"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/til_bmi" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+    </LinearLayout>
+</layout>

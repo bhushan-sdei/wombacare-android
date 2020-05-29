@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.app.womba.ui.intro.IntroVM" />
+
+    </data>
+<RelativeLayout   android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imgStart"
+            android:layout_width="wrap_content"
+            android:padding="@dimen/_4sdp"
+            app:srcCompat="@drawable/ic_intro_back_disabled"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgDotFirst"
+                android:layout_width="wrap_content"
+                app:srcCompat="@drawable/ic_dot_color"
+                android:layout_margin="@dimen/_2sdp"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/imgDotSecond"
+                android:layout_width="wrap_content"
+                app:srcCompat="@drawable/ic_dot_white"
+                android:layout_margin="@dimen/_2sdp"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/imgDotThird"
+                android:layout_width="wrap_content"
+                app:srcCompat="@drawable/ic_dot_white"
+                android:layout_margin="@dimen/_2sdp"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/imgDotFourth"
+                android:layout_width="wrap_content"
+                app:srcCompat="@drawable/ic_dot_white"
+                android:layout_margin="@dimen/_2sdp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imgFinish"
+            android:layout_width="wrap_content"
+            android:padding="@dimen/_4sdp"
+            app:srcCompat="@drawable/ic_intro_next"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
+</layout>

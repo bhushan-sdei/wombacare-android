@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_bottom_bar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:weightSum="4">
+
+    <LinearLayout
+        android:id="@+id/ll_profile"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:padding="@dimen/_4sdp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imgHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_3sdp"
+            app:srcCompat="@drawable/ic_home" />
+
+        <com.app.womba.utils.customViews.RegularTextView
+            android:id="@+id/txtHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home"
+
+            android:textSize="@dimen/_10ssp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_bookings"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/_4sdp">
+
+        <ImageView
+            android:id="@+id/imgBookings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_3sdp"
+            app:srcCompat="@drawable/ic_appointments" />
+
+        <com.app.womba.utils.customViews.RegularTextView
+            android:id="@+id/txtBookings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/appointments"
+            android:textSize="@dimen/_10ssp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_cards"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:padding="@dimen/_4sdp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imgCoins"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_3sdp"
+            app:srcCompat="@drawable/ic_payment" />
+
+        <com.app.womba.utils.customViews.RegularTextView
+            android:id="@+id/txtCoins"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/payments"
+            android:textSize="@dimen/_10ssp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_messages"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:padding="@dimen/_4sdp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imgMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_3sdp"
+            app:srcCompat="@drawable/ic_profile" />
+
+        <com.app.womba.utils.customViews.RegularTextView
+            android:id="@+id/txtMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile"
+            android:textSize="@dimen/_10ssp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

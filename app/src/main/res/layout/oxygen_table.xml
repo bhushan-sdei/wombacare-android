@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TableRow android:background="@drawable/shape_table_border">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_table_border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/spo2_level"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_table_border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/indication"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold" />
+
+    </TableRow>
+
+    <TableRow android:background="@drawable/shape_table_border">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_table_border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/normal"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_table_border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/_95_and_above"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp" />
+
+    </TableRow>
+
+    <TableRow android:background="@drawable/shape_table_border">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_table_border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/abnormal"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_table_border"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/below_95"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp" />
+
+    </TableRow>
+</TableLayout>

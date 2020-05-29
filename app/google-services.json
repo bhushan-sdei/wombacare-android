@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "927831380806",
+    "firebase_url": "https://womba-4ea98.firebaseio.com",
+    "project_id": "womba-4ea98",
+    "storage_bucket": "womba-4ea98.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:927831380806:android:403b83f5a475a08cbbcb47",
+        "android_client_info": {
+          "package_name": "com.app.womba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "927831380806-ue8vlm4g941a6rpueqn6gg0jole4qe1n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2Vkib4XGLcMXIOxt2VN56CxVO1-zBKk0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "927831380806-ue8vlm4g941a6rpueqn6gg0jole4qe1n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

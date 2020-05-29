@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.app.womba.ui.appointments.AppointmentDetailsVM" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimaryDark">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/toolbarConstraint"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imgBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
+                    <com.app.womba.utils.customViews.RegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="?android:attr/actionBarSize"
+                        android:gravity="center"
+                        android:text="@string/appointment_detail"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/_17ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
+                tools:context="com.app.activities.DoctorProfileActivity">
+
+                <ImageView
+                    android:id="@+id/imageView_doctor_profile"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/image_place_holder"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/imageView_doctor_profile"
+                    app:layout_constraintTop_toTopOf="@+id/imageView_doctor_profile">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.app.womba.utils.customViews.SemiBoldTextView
+                            android:id="@+id/textView_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_4sdp"
+                            android:text="Dr. Monica Doe , MD"
+                            android:textColor="@color/textColor"
+                            android:textSize="@dimen/_14ssp" />
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/imgGender"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_8sdp"
+                           />
+                    </LinearLayout>
+
+                    <com.app.womba.utils.customViews.RegularTextView
+                        android:id="@+id/textView_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_4sdp"
+                        android:text="General Doctor"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/_12ssp" />
+
+                </LinearLayout>
+
+                <!--        <TextView-->
+                <!--            android:id="@+id/textView5"-->
+                <!--            android:layout_width="wrap_content"-->
+                <!--            android:layout_height="wrap_content"-->
+                <!--            android:layout_marginTop="16dp"-->
+                <!--            android:text="Phone"-->
+                <!--            android:textSize="16sp"-->
+                <!--            android:textStyle="bold"-->
+                <!--            app:layout_constraintEnd_toStartOf="@+id/textView23"-->
+                <!--            app:layout_constraintHorizontal_bias="0.5"-->
+                <!--            app:layout_constraintStart_toStartOf="@+id/textView4"-->
+                <!--            app:layout_constraintTop_toBottomOf="@+id/textView7" />-->
+
+                <LinearLayout
+                    android:id="@+id/linearLayout3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView_doctor_profile">
+
+                    <com.app.womba.utils.customViews.SemiBoldTextView
+                        android:id="@+id/txtAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:drawableLeft="@drawable/ic_location"
+                        android:drawablePadding="@dimen/_8sdp"
+                        android:text="Address"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <com.app.womba.utils.customViews.SemiBoldTextView
+                        android:id="@+id/txtDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:drawableLeft="@drawable/ic_calendar_blue"
+                        android:drawablePadding="@dimen/_8sdp"
+                        android:text="Firday"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@color/grayLight" />
+
+                    <com.app.womba.utils.customViews.SemiBoldTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:drawablePadding="@dimen/_8sdp"
+                        android:text="Reason for Visit"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <com.app.womba.utils.customViews.RegularTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:drawablePadding="@dimen/_8sdp"
+                        android:text="@string/lorem_ipsum"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/_12ssp" />
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@color/grayLight" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingStart="@dimen/_12ssp"
+                        android:paddingEnd="@dimen/_12ssp">
+
+                        <com.app.womba.utils.customViews.SemiBoldTextView
+                            android:id="@+id/txtVideoCall"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_primary_stroke"
+                            android:drawableLeft="@drawable/ic_video_camera"
+                            android:drawablePadding="@dimen/_8sdp"
+                            android:gravity="center"
+                            android:padding="@dimen/_8sdp"
+                            android:text="Video"
+                            android:textColor="@color/textColor"
+                            android:textSize="@dimen/_14ssp"
+                            android:visibility="visible" />
+
+                        <com.app.womba.utils.customViews.SemiBoldTextView
+                            android:id="@+id/txtVitalScan"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_12ssp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_primary_stroke"
+                            android:drawableLeft="@drawable/ic_vital_scan"
+                            android:drawablePadding="@dimen/_8sdp"
+                            android:gravity="center"
+                            android:padding="@dimen/_8sdp"
+                            android:text="Vital Scan"
+
+                            android:textColor="@color/textColor"
+                            android:textSize="@dimen/_14ssp"
+                            android:visibility="gone" />
+
+
+                        <com.app.womba.utils.customViews.SemiBoldTextView
+                            android:id="@+id/txtViewErx"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_12sdp"
+                            android:layout_weight="1"
+                            android:background="@drawable/dark_buton_bg"
+                            android:drawablePadding="@dimen/_8sdp"
+                            android:gravity="center"
+                            android:padding="@dimen/_8sdp"
+                            android:text="View eRX"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_14ssp"
+                            android:visibility="gone" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+</layout>

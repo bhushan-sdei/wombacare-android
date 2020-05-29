@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/ic_happy_blue"
+        android:drawableTint="@color/white"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="@string/low"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14ssp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/ic_smile_blue"
+        android:drawableTint="@color/white"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="@string/normal"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14ssp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/ic_sceptic_blue"
+        android:drawableTint="@color/white"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="@string/mild"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14ssp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/ic_sad_blue"
+        android:drawableTint="@color/white"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="@string/high"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14ssp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/ic_very_sad_blue"
+        android:drawableTint="@color/white"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="@string/very_sad"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14ssp" />
+
+</TableRow>

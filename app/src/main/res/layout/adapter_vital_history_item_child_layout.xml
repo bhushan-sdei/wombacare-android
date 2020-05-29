@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/AppTheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#f7f7f7"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="3dp"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/rootView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true">
+
+
+            <com.app.womba.utils.customViews.RegularTextView
+                android:id="@+id/timeTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="23dp"
+                android:drawableEnd="@drawable/ic_back"
+                android:textColor="#bdbdbd"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/stress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="16dp"
+                android:drawableStart="@drawable/ic_smile_blue"
+                android:drawablePadding="5dp"
+                android:textColor="#3b65a1"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/timeTxt"
+                tools:text="Low" />
+
+            <TextView
+                android:id="@+id/heart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:drawableStart="@drawable/ic_heart_blue"
+                android:drawablePadding="5dp"
+                android:textColor="#3b65a1"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/stress"
+                app:layout_constraintStart_toStartOf="@+id/timeTxt"
+                app:layout_constraintTop_toTopOf="@+id/stress" />
+
+            <TextView
+                android:id="@+id/respiration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:drawableStart="@drawable/ic_trachea_blue"
+                android:drawablePadding="5dp"
+                android:textColor="#3b65a1"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintBottom_toBottomOf="@+id/stress"
+                app:layout_constraintEnd_toEndOf="@+id/timeTxt"
+                app:layout_constraintTop_toTopOf="@+id/stress" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -1,0 +1,1032 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.app.womba.ui.profile.healthProfile.HealthProfileVM" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/toolbarConstraint"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imgBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
+                    <com.app.womba.utils.customViews.RegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="?android:attr/actionBarSize"
+                        android:gravity="center"
+                        android:text="@string/health_profile"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/_17ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginBottom="16dp">-->
+
+            <!--                <androidx.cardview.widget.CardView-->
+            <!--                    android:id="@+id/card_condition"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_margin="@dimen/_4sdp"-->
+            <!--                    android:elevation="@dimen/_4ssp"-->
+            <!--                    android:fadingEdge="vertical"-->
+            <!--                    app:cardCornerRadius="4dp"-->
+            <!--                    app:cardElevation="4dp"-->
+            <!--                    app:cardPreventCornerOverlap="true"-->
+            <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                    app:layout_constraintStart_toStartOf="parent"-->
+            <!--                    app:layout_constraintTop_toTopOf="parent">-->
+
+            <!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="wrap_content">-->
+
+
+            <!--                        <com.app.womba.utils.customViews.SemiBoldTextView-->
+            <!--                            android:id="@+id/textView_condition"-->
+            <!--                            android:layout_width="0dp"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:layout_marginStart="8dp"-->
+            <!--                            android:layout_marginLeft="8dp"-->
+            <!--                            android:layout_marginTop="16dp"-->
+            <!--                            android:layout_marginEnd="8dp"-->
+            <!--                            android:layout_marginRight="8dp"-->
+            <!--                            android:text="@string/healthProfile_title1"-->
+            <!--                            android:textSize="@dimen/_12ssp"-->
+            <!--                            android:textStyle="bold"-->
+            <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                            app:layout_constraintStart_toStartOf="parent"-->
+            <!--                            app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--                        <com.app.womba.utils.customViews.RegularTextView-->
+            <!--                            android:id="@+id/textView_question_condition"-->
+            <!--                            android:layout_width="0dp"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:layout_marginStart="8dp"-->
+            <!--                            android:layout_marginLeft="8dp"-->
+            <!--                            android:layout_marginTop="16dp"-->
+            <!--                            android:layout_marginEnd="8dp"-->
+            <!--                            android:layout_marginRight="8dp"-->
+            <!--                            android:text="@string/healthProfile_ques1"-->
+            <!--                            android:textSize="@dimen/_10ssp"-->
+            <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                            app:layout_constraintStart_toStartOf="parent"-->
+            <!--                            app:layout_constraintTop_toBottomOf="@+id/textView_condition" />-->
+
+            <!--                        <androidx.recyclerview.widget.RecyclerView-->
+            <!--                            android:id="@+id/recyclerView_condition"-->
+            <!--                            android:layout_width="match_parent"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:layout_marginTop="@dimen/_12sdp"-->
+            <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                            app:layout_constraintStart_toStartOf="parent"-->
+            <!--                            app:layout_constraintTop_toBottomOf="@+id/textView_question_condition" />-->
+
+            <!--                        <ImageButton-->
+            <!--                            android:id="@+id/imageButton_condition"-->
+            <!--                            android:layout_width="wrap_content"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:background="@drawable/login_buton_bg"-->
+            <!--                            android:paddingTop="4dp"-->
+            <!--                            android:paddingBottom="4dp"-->
+            <!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                            app:layout_constraintHorizontal_bias="1.0"-->
+            <!--                            app:layout_constraintStart_toStartOf="parent"-->
+            <!--                            app:layout_constraintTop_toBottomOf="@+id/recyclerView_condition"-->
+            <!--                            app:layout_constraintVertical_bias="1.0"-->
+            <!--                            app:srcCompat="@drawable/ic_add" />-->
+
+            <!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+            <!--                </androidx.cardview.widget.CardView>-->
+
+            <!--                <androidx.cardview.widget.CardView-->
+            <!--                    android:id="@+id/card_medication"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_margin="@dimen/_4sdp"-->
+            <!--                    android:elevation="@dimen/_4ssp"-->
+            <!--                    android:fadingEdge="vertical"-->
+            <!--                    app:cardCornerRadius="4dp"-->
+            <!--                    app:cardElevation="4dp"-->
+            <!--                    app:cardPreventCornerOverlap="true"-->
+            <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                    app:layout_constraintHorizontal_bias="0.0"-->
+            <!--                    app:layout_constraintStart_toStartOf="parent"-->
+            <!--                    app:layout_constraintTop_toBottomOf="@+id/card_condition">-->
+
+            <!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="wrap_content">-->
+
+
+            <!--                        <com.app.womba.utils.customViews.SemiBoldTextView-->
+            <!--                            android:id="@+id/textView_medication"-->
+            <!--                            android:layout_width="0dp"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:layout_marginStart="8dp"-->
+            <!--                            android:layout_marginLeft="8dp"-->
+            <!--                            android:layout_marginTop="16dp"-->
+            <!--                            android:layout_marginEnd="8dp"-->
+            <!--                            android:layout_marginRight="8dp"-->
+            <!--                            android:text="@string/healthProfile_title1"-->
+            <!--                            android:textSize="@dimen/_12ssp"-->
+            <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                            app:layout_constraintStart_toStartOf="parent"-->
+            <!--                            app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--                        <com.app.womba.utils.customViews.RegularTextView-->
+            <!--                            android:id="@+id/textView_question_medication"-->
+            <!--                            android:layout_width="0dp"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:layout_marginStart="8dp"-->
+            <!--                            android:layout_marginLeft="8dp"-->
+            <!--                            android:layout_marginTop="16dp"-->
+            <!--                            android:layout_marginEnd="8dp"-->
+            <!--                            android:layout_marginRight="8dp"-->
+            <!--                            android:text="@string/healthProfile_ques1"-->
+            <!--                            android:textSize="@dimen/_10ssp"-->
+            <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                            app:layout_constraintStart_toStartOf="parent"-->
+            <!--                            app:layout_constraintTop_toBottomOf="@+id/textView_medication" />-->
+
+            <!--                        <androidx.recyclerview.widget.RecyclerView-->
+            <!--                            android:id="@+id/recyclerView_medication"-->
+            <!--                            android:layout_width="match_parent"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:layout_marginTop="16dp"-->
+            <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                            app:layout_constraintStart_toStartOf="parent"-->
+            <!--                            app:layout_constraintTop_toBottomOf="@+id/textView_question_medication" />-->
+
+            <!--                        <ImageButton-->
+            <!--                            android:id="@+id/imageButton_medication"-->
+            <!--                            android:layout_width="wrap_content"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:layout_marginStart="8dp"-->
+            <!--                            android:layout_marginLeft="8dp"-->
+            <!--                            android:layout_marginTop="16dp"-->
+            <!--                            android:background="@drawable/login_buton_bg"-->
+            <!--                            android:paddingTop="4dp"-->
+            <!--                            android:paddingBottom="4dp"-->
+            <!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                            app:layout_constraintHorizontal_bias="1.0"-->
+            <!--                            app:layout_constraintStart_toStartOf="parent"-->
+            <!--                            app:layout_constraintTop_toBottomOf="@+id/recyclerView_medication"-->
+            <!--                            app:layout_constraintVertical_bias="1.0"-->
+            <!--                            app:srcCompat="@drawable/ic_add" />-->
+
+            <!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+            <!--                </androidx.cardview.widget.CardView>-->
+
+            <!--                <androidx.cardview.widget.CardView-->
+            <!--                    android:id="@+id/card_allergies"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_margin="@dimen/_4sdp"-->
+            <!--                    android:elevation="@dimen/_4ssp"-->
+            <!--                    android:fadingEdge="vertical"-->
+            <!--                    app:cardCornerRadius="4dp"-->
+            <!--                    app:cardElevation="4dp"-->
+            <!--                    app:cardPreventCornerOverlap="true"-->
+            <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                    app:layout_constraintHorizontal_bias="0.0"-->
+            <!--                    app:layout_constraintStart_toStartOf="parent"-->
+            <!--                    app:layout_constraintTop_toBottomOf="@+id/card_medication">-->
+
+            <!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="wrap_content">-->
+
+
+            <!--                        <com.app.womba.utils.customViews.SemiBoldTextView-->
+            <!--                            android:id="@+id/textView_allergies"-->
+            <!--                            android:layout_width="0dp"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:layout_marginStart="8dp"-->
+            <!--                            android:layout_marginLeft="8dp"-->
+            <!--                            android:layout_marginTop="16dp"-->
+            <!--                            android:layout_marginEnd="8dp"-->
+            <!--                            android:layout_marginRight="8dp"-->
+            <!--                            android:text="@string/healthProfile_title1"-->
+            <!--                            android:textSize="@dimen/_12ssp"-->
+
+            <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                            app:layout_constraintStart_toStartOf="parent"-->
+            <!--                            app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--                        <com.app.womba.utils.customViews.RegularTextView-->
+            <!--                            android:id="@+id/textView_question_allergies"-->
+            <!--                            android:layout_width="0dp"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:layout_marginStart="8dp"-->
+            <!--                            android:layout_marginLeft="8dp"-->
+            <!--                            android:layout_marginTop="16dp"-->
+            <!--                            android:layout_marginEnd="8dp"-->
+            <!--                            android:layout_marginRight="8dp"-->
+            <!--                            android:text="@string/healthProfile_ques1"-->
+            <!--                            android:textSize="@dimen/_10ssp"-->
+            <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                            app:layout_constraintStart_toStartOf="parent"-->
+            <!--                            app:layout_constraintTop_toBottomOf="@+id/textView_allergies" />-->
+
+            <!--                        <androidx.recyclerview.widget.RecyclerView-->
+            <!--                            android:id="@+id/recyclerView_allergies"-->
+            <!--                            android:layout_width="match_parent"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:layout_marginTop="16dp"-->
+            <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                            app:layout_constraintStart_toStartOf="parent"-->
+            <!--                            app:layout_constraintTop_toBottomOf="@+id/textView_question_allergies" />-->
+
+            <!--                        <ImageButton-->
+            <!--                            android:id="@+id/imageButton_allergies"-->
+            <!--                            android:layout_width="wrap_content"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:layout_marginStart="8dp"-->
+            <!--                            android:layout_marginLeft="8dp"-->
+            <!--                            android:layout_marginTop="16dp"-->
+            <!--                            android:background="@drawable/login_buton_bg"-->
+            <!--                            android:paddingTop="4dp"-->
+            <!--                            android:paddingBottom="4dp"-->
+            <!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                            app:layout_constraintHorizontal_bias="1.0"-->
+            <!--                            app:layout_constraintStart_toStartOf="parent"-->
+            <!--                            app:layout_constraintTop_toBottomOf="@+id/recyclerView_allergies"-->
+            <!--                            app:layout_constraintVertical_bias="1.0"-->
+            <!--                            app:srcCompat="@drawable/ic_add" />-->
+
+            <!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+            <!--                </androidx.cardview.widget.CardView>-->
+
+            <!--                <androidx.cardview.widget.CardView-->
+            <!--                    android:id="@+id/card_treatment"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_margin="@dimen/_4sdp"-->
+            <!--                    android:elevation="@dimen/_4ssp"-->
+            <!--                    android:fadingEdge="vertical"-->
+            <!--                    app:cardCornerRadius="4dp"-->
+            <!--                    app:cardElevation="4dp"-->
+            <!--                    app:cardPreventCornerOverlap="true"-->
+            <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                    app:layout_constraintHorizontal_bias="1.0"-->
+            <!--                    app:layout_constraintStart_toStartOf="parent"-->
+            <!--                    app:layout_constraintTop_toBottomOf="@+id/card_allergies">-->
+
+            <!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="wrap_content">-->
+
+
+            <!--                        <com.app.womba.utils.customViews.SemiBoldTextView-->
+            <!--                            android:id="@+id/textView_treatment"-->
+            <!--                            android:layout_width="0dp"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:layout_marginStart="8dp"-->
+            <!--                            android:layout_marginLeft="8dp"-->
+            <!--                            android:layout_marginTop="16dp"-->
+            <!--                            android:layout_marginEnd="8dp"-->
+            <!--                            android:layout_marginRight="8dp"-->
+            <!--                            android:text="@string/healthProfile_title1"-->
+            <!--                            android:textSize="@dimen/_12ssp"-->
+
+            <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                            app:layout_constraintStart_toStartOf="parent"-->
+            <!--                            app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--                        <com.app.womba.utils.customViews.RegularTextView-->
+            <!--                            android:id="@+id/textView_question_treatment"-->
+            <!--                            android:layout_width="0dp"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:layout_marginStart="8dp"-->
+            <!--                            android:layout_marginLeft="8dp"-->
+            <!--                            android:layout_marginTop="16dp"-->
+            <!--                            android:layout_marginEnd="8dp"-->
+            <!--                            android:layout_marginRight="8dp"-->
+            <!--                            android:text="@string/healthProfile_ques1"-->
+            <!--                            android:textSize="@dimen/_10ssp"-->
+            <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                            app:layout_constraintStart_toStartOf="parent"-->
+            <!--                            app:layout_constraintTop_toBottomOf="@+id/textView_treatment" />-->
+
+            <!--                        <androidx.recyclerview.widget.RecyclerView-->
+            <!--                            android:id="@+id/recyclerView_treatment"-->
+            <!--                            android:layout_width="match_parent"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:layout_marginTop="16dp"-->
+            <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                            app:layout_constraintStart_toStartOf="parent"-->
+            <!--                            app:layout_constraintTop_toBottomOf="@+id/textView_question_treatment" />-->
+
+            <!--                        <ImageButton-->
+            <!--                            android:id="@+id/imageButton_treatment"-->
+            <!--                            android:layout_width="wrap_content"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:layout_marginStart="8dp"-->
+            <!--                            android:layout_marginLeft="8dp"-->
+            <!--                            android:layout_marginTop="16dp"-->
+            <!--                            android:background="@drawable/login_buton_bg"-->
+            <!--                            android:paddingTop="4dp"-->
+            <!--                            android:paddingBottom="4dp"-->
+            <!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                            app:layout_constraintHorizontal_bias="1.0"-->
+            <!--                            app:layout_constraintStart_toStartOf="parent"-->
+            <!--                            app:layout_constraintTop_toBottomOf="@+id/recyclerView_treatment"-->
+            <!--                            app:layout_constraintVertical_bias="1.0"-->
+            <!--                            app:srcCompat="@drawable/ic_add" />-->
+
+            <!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+            <!--                </androidx.cardview.widget.CardView>-->
+
+            <!--                <androidx.cardview.widget.CardView-->
+            <!--                    android:id="@+id/card_Immunizations"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_margin="@dimen/_4sdp"-->
+            <!--                    android:elevation="@dimen/_4ssp"-->
+            <!--                    android:fadingEdge="vertical"-->
+            <!--                    app:cardCornerRadius="4dp"-->
+            <!--                    app:cardElevation="4dp"-->
+            <!--                    app:cardPreventCornerOverlap="true"-->
+            <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                    app:layout_constraintHorizontal_bias="1.0"-->
+            <!--                    app:layout_constraintStart_toStartOf="parent"-->
+            <!--                    app:layout_constraintTop_toBottomOf="@+id/card_treatment">-->
+
+            <!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="wrap_content">-->
+
+
+            <!--                        <com.app.womba.utils.customViews.SemiBoldTextView-->
+            <!--                            android:id="@+id/textView_Immunizations"-->
+            <!--                            android:layout_width="0dp"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:layout_marginStart="8dp"-->
+            <!--                            android:layout_marginLeft="8dp"-->
+            <!--                            android:layout_marginTop="16dp"-->
+            <!--                            android:layout_marginEnd="8dp"-->
+            <!--                            android:layout_marginRight="8dp"-->
+            <!--                            android:text="@string/healthProfile_title1"-->
+            <!--                            android:textSize="@dimen/_12ssp"-->
+
+            <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                            app:layout_constraintStart_toStartOf="parent"-->
+            <!--                            app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--                        <com.app.womba.utils.customViews.RegularTextView-->
+            <!--                            android:id="@+id/textView_question_Immunizations"-->
+            <!--                            android:layout_width="0dp"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:layout_marginStart="8dp"-->
+            <!--                            android:layout_marginLeft="8dp"-->
+            <!--                            android:layout_marginTop="16dp"-->
+            <!--                            android:layout_marginEnd="8dp"-->
+            <!--                            android:layout_marginRight="8dp"-->
+            <!--                            android:text="@string/healthProfile_ques1"-->
+            <!--                            android:textSize="@dimen/_10ssp"-->
+            <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                            app:layout_constraintStart_toStartOf="parent"-->
+            <!--                            app:layout_constraintTop_toBottomOf="@+id/textView_Immunizations" />-->
+
+            <!--                        <androidx.recyclerview.widget.RecyclerView-->
+            <!--                            android:id="@+id/recyclerView_Immunizations"-->
+            <!--                            android:layout_width="match_parent"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:layout_marginTop="16dp"-->
+            <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                            app:layout_constraintStart_toStartOf="parent"-->
+            <!--                            app:layout_constraintTop_toBottomOf="@+id/textView_question_Immunizations" />-->
+
+            <!--                        <ImageButton-->
+            <!--                            android:id="@+id/imageButton_Immunizations"-->
+            <!--                            android:layout_width="wrap_content"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:layout_marginStart="8dp"-->
+            <!--                            android:layout_marginLeft="8dp"-->
+            <!--                            android:layout_marginTop="16dp"-->
+            <!--                            android:background="@drawable/login_buton_bg"-->
+            <!--                            android:paddingTop="4dp"-->
+            <!--                            android:paddingBottom="4dp"-->
+            <!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                            app:layout_constraintHorizontal_bias="1.0"-->
+            <!--                            app:layout_constraintStart_toStartOf="parent"-->
+            <!--                            app:layout_constraintTop_toBottomOf="@+id/recyclerView_Immunizations"-->
+            <!--                            app:layout_constraintVertical_bias="1.0"-->
+            <!--                            app:srcCompat="@drawable/ic_add" />-->
+
+            <!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+            <!--                </androidx.cardview.widget.CardView>-->
+
+
+            <!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_condition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:elevation="8dp"
+                    android:fadingEdge="vertical"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="4dp"
+                    app:cardPreventCornerOverlap="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <com.app.womba.utils.customViews.SemiBoldTextView
+                            android:id="@+id/textView_condition"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:text="@string/healthProfile_title1"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.app.womba.utils.customViews.RegularTextView
+                            android:id="@+id/textView_question_condition"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:text="@string/healthProfile_ques1"
+                            android:textSize="@dimen/_12ssp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView_condition" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerView_condition"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView_question_condition" />
+
+                        <ImageButton
+                            android:id="@+id/imageButton_condition"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/login_buton_bg"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/recyclerView_condition"
+                            app:layout_constraintVertical_bias="1.0"
+                            app:srcCompat="@drawable/ic_add" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_medication"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:elevation="8dp"
+                    android:fadingEdge="vertical"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="4dp"
+                    app:cardPreventCornerOverlap="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/card_condition">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <com.app.womba.utils.customViews.SemiBoldTextView
+                            android:id="@+id/textView_medication"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:text="Medication"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.app.womba.utils.customViews.RegularTextView
+                            android:id="@+id/textView_question_medication"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:text="Do you take any medications?"
+                            android:textSize="@dimen/_12ssp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView_medication" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerView_medication"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView_question_medication" />
+
+                        <ImageButton
+                            android:id="@+id/imageButton_medication"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/login_buton_bg"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/recyclerView_medication"
+                            app:layout_constraintVertical_bias="1.0"
+                            app:srcCompat="@drawable/ic_add" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_allergies"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+
+                    android:elevation="8dp"
+                    android:fadingEdge="vertical"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="4dp"
+                    app:cardPreventCornerOverlap="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/card_medication">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <com.app.womba.utils.customViews.SemiBoldTextView
+                            android:id="@+id/textView_allergies"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:text="Allergies"
+                            android:textSize="@dimen/_14ssp"
+
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.app.womba.utils.customViews.RegularTextView
+                            android:id="@+id/textView_question_allergies"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:text="Do you have any allergies?"
+                            android:textSize="@dimen/_12ssp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView_allergies" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerView_allergies"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView_question_allergies" />
+
+                        <ImageButton
+                            android:id="@+id/imageButton_allergies"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/login_buton_bg"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/recyclerView_allergies"
+                            app:layout_constraintVertical_bias="1.0"
+                            app:srcCompat="@drawable/ic_add" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_treatment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+
+                    android:elevation="8dp"
+                    android:fadingEdge="vertical"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="4dp"
+                    app:cardPreventCornerOverlap="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/card_allergies">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <com.app.womba.utils.customViews.SemiBoldTextView
+                            android:id="@+id/textView_treatment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:text="Treatments"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.app.womba.utils.customViews.RegularTextView
+                            android:id="@+id/textView_question_treatment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:text="Did you had any treatments?"
+                            android:textSize="@dimen/_12ssp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView_treatment" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerView_treatment"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView_question_treatment" />
+
+                        <ImageButton
+                            android:id="@+id/imageButton_treatment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="16dp"
+
+                            android:background="@drawable/login_buton_bg"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/recyclerView_treatment"
+                            app:layout_constraintVertical_bias="1.0"
+                            app:srcCompat="@drawable/ic_add" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_Immunizations"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:elevation="8dp"
+                    android:fadingEdge="vertical"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="4dp"
+                    app:cardPreventCornerOverlap="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/card_treatment">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <com.app.womba.utils.customViews.SemiBoldTextView
+                            android:id="@+id/textView_Immunizations"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:text="Vaccinations"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.app.womba.utils.customViews.RegularTextView
+                            android:id="@+id/textView_question_Immunizations"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:text="Which vaccinations have you had?"
+                            android:textSize="@dimen/_12ssp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView_Immunizations" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerView_Immunizations"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView_question_Immunizations" />
+
+                        <ImageButton
+                            android:id="@+id/imageButton_Immunizations"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/login_buton_bg"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/recyclerView_Immunizations"
+                            app:layout_constraintVertical_bias="1.0"
+                            app:srcCompat="@drawable/ic_add" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_covid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:elevation="8dp"
+                    android:fadingEdge="vertical"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="4dp"
+                    app:cardPreventCornerOverlap="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/card_Immunizations">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <com.app.womba.utils.customViews.SemiBoldTextView
+                            android:id="@+id/textView_covid"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:text="COVID-19"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <Switch
+                            android:id="@+id/switch_covid"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:padding="8dp"
+                            android:text="Were you infected with Corona/Covid-19?    "
+                            android:textSize="16sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/til_instruction" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/textInputLayout_hospitalized"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="8dp"
+                            android:visibility="gone"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView_question_condition">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/textInputEditText_hospital"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp"
+                                android:hint="where your were hospitalized?" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/textInputLayout_treatment"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:visibility="gone"
+                            android:layout_marginRight="8dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textInputLayout_vacination">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/textInputEditText_treatment"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp"
+                                android:hint="What was your COVID treatment?" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <Button
+                            android:id="@+id/imageButton_covid_save"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/save_buton_bg"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_8ssp"
+                            android:text="SAVE"
+                        />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+
+</layout>
